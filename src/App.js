@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import WalletConnect from './components/WalletConnect';
 import CreateProduct from './components/CreateProduct';
+import PurchaseProduct from './components/PurchaseProduct';
 
 const App = () => {
   const [walletAddress, setWalletAddress] = useState(null);
@@ -13,6 +14,7 @@ const App = () => {
         <WalletConnect setWalletAddress={setWalletAddress}/>
         {walletAddress && <p>Wallet Address: {walletAddress}</p>}
         {walletAddress && <CreateProduct marketPlaceAddress={marketPlaceAddress}/>}
+        {walletAddress && <PurchaseProduct marketplaceWalletAddress={marketPlaceAddress} />}
       </header>
     </div>
   );
