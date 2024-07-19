@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import WalletConnect from './components/WalletConnect';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+const App = () => {
+  const [walletAddress, setWalletAddress] = useState(null);
+
+  return(
+    <div className='App'>
+      <h1>Decentralized Marketplace</h1>
+      <header className='App-header'>
+        <WalletConnect setWalletAddress={setWalletAddress}/>
+        {walletAddress && <p>Wallet Address: {walletAddress}</p>}
       </header>
     </div>
   );
-}
+};
 
 export default App;
